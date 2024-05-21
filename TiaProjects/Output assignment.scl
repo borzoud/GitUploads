@@ -1,0 +1,372 @@
+﻿FUNCTION "Output assignment" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_TEMP 
+      tNotReady : Bool;
+   END_VAR
+
+
+BEGIN
+	REGION Common
+	    // "qAE1-B1" := "Common".Q.AE1.B1 AND NOT "Common".System.Simulate;
+	    // "qAE1-H2" := "Common".Q.AE1.H2 AND NOT "Common".System.Simulate;
+	    // "qAE1-H3" := "Common".Q.AE1.H3 AND NOT "Common".System.Simulate;
+	END_REGION
+	
+	REGION RT 315
+	    "q315K503" := "315".Q.K503 AND NOT "System1".Common.Simulate;
+	    "q315V501" := "315".Q.V501 AND NOT "System1".Common.Simulate;
+	    "q315V503" := "315".Q.V503 AND NOT "System1".Common.Simulate;
+	    "q315V506" := "315".Q.V506 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION ASRA 325
+	    "q325H1" := "325".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q325H2" := "325".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q325PV501" := "325".Q.PV501 OR "330".Q.PV501 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325PV502" := "325".Q.PV502 OR "330".Q.PV502 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325PV503" := "325".Q.PV503 OR "330".Q.PV503 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325PV550" := "325".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q325V547" := "325".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q325V548" := "325".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q325V550" := "325".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q325V551" := "325".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q325V552" := "325".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q325V553" := "325".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q325V554" := "325".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q325V555" := "325".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q325V556.A" := "325".Q."V556.A" AND NOT "System1".Common.Simulate;
+	    "q325V556.B" := "325".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q325V557" := "325".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q325V558" := "325".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q325V559" := "325".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q325V560" := "325".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q325V561" := "325".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q325V562" := "325".Q.V562 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325V566" := "325".Q.V566 AND NOT "System1".Common.Simulate;
+	    "q325V570" := "325".Q.V570 AND NOT "System1".Common.Simulate;
+	    "q325V571" := "325".Q.V571 AND NOT "System1".Common.Simulate;
+	    "q325V572" := "325".Q.V572 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325V575.A" := "325".Q."V575.A" AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q325V575.B" := "325".Q."V575.B" AND NOT "System1".Common.Simulate; // Dry Cake
+	END_REGION
+	
+	REGION ASRA 330
+	    "q330H1" := "330".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q330H2" := "330".Q.H2 AND NOT "System1".Common.Simulate;
+	//  "q330PV501" := "330".Q.PV501 OR "330".Q.PV501 AND NOT "System1".Common.Simulate; // Dry Cake
+	//  "q330PV502" := "330".Q.PV502 OR "330".Q.PV502 AND NOT "System1".Common.Simulate; // Dry Cake
+	//  "q330PV503" := "330".Q.PV503 OR "330".Q.PV503 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q330PV550" := "330".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q330V547" := "330".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q330V548" := "330".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q330V550" := "330".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q330V551" := "330".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q330V552" := "330".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q330V553" := "330".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q330V554" := "330".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q330V555" := "330".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q330V556.A" := "330".Q."V556.A" AND NOT "System1".Common.Simulate;
+	    "q330V556.B" := "330".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q330V557" := "330".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q330V558" := "330".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q330V559" := "330".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q330V560" := "330".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q330V561" := "330".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q330V562" := "330".Q.V562 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q330V566" := "330".Q.V566 AND NOT "System1".Common.Simulate;
+	    "q330V570" := "330".Q.V570 AND NOT "System1".Common.Simulate;
+	    "q330V571" := "330".Q.V571 AND NOT "System1".Common.Simulate;
+	    "q330V572" := "330".Q.V572 AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q330V575.A" := "330".Q."V575.A" AND NOT "System1".Common.Simulate; // Dry Cake
+	    "q330V575.B" := "330".Q."V575.B" AND NOT "System1".Common.Simulate; // Dry Cake
+	END_REGION
+	
+	REGION ASRA 370
+	    "q370H1" := "370".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q370H2" := "370".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q370PV550" := "370".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q370V547" := "370".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q370V548" := "370".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q370V550" := "370".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q370V551" := "370".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q370V552" := "370".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q370V553" := "370".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q370V554" := "370".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q370V555" := "370".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q370V556.A" := "370".Q."V556.A" AND NOT "System1".Common.Simulate;     // Order to close
+	    "q370V556.B" := "370".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q370V557" := "370".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q370V558" := "370".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q370V559" := "370".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q370V560" := "370".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q370V561" := "370".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q370V566" := "370".Q.V566 AND NOT "System1".Common.Simulate;
+	    // "q370V570" := "370".Q.V570 AND NOT "System1".Common.Simulate;   // Candle 5
+	    // "q370V571" := "370".Q.V571 AND NOT "System1".Common.Simulate;   // Candle 6
+	    // "q370V572" := "370".Q.V572 AND NOT "System1".Common.Simulate; 
+	    
+	END_REGION
+	
+	REGION ASRA 390
+	    "q390H1" := "390".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q390H2" := "390".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q390PV550" := "390".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q390V547" := "390".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q390V548" := "390".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q390V550" := "390".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q390V551" := "390".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q390V552" := "390".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q390V553" := "390".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q390V554" := "390".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q390V555" := "390".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q390V556.A" := "390".Q."V556.A" AND NOT "System1".Common.Simulate;     // Order to close
+	    "q390V556.B" := "390".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q390V557" := "390".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q390V558" := "390".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q390V559" := "390".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q390V560" := "390".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q390V561" := "390".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q390V566" := "390".Q.V566 AND NOT "System1".Common.Simulate;
+	    "q390V570" := "390".Q.V570 AND NOT "System1".Common.Simulate;   // Candle 5
+	    "q390V571" := "390".Q.V571 AND NOT "System1".Common.Simulate;   // Candle 6
+	    // "q390V572" := "390".Q.V572 AND NOT "System1".Common.Simulate; 
+	    
+	END_REGION
+	
+	REGION CAT 345
+	    "q345H01" := ("345".Q.H500_1 OR "345".Q.H501_1) AND NOT "System1".Common.Simulate;
+	    "q345K500" := "345".Q.K500 AND NOT "System1".Common.Simulate;
+	    "q345K501" := "345".Q.K501 AND NOT "System1".Common.Simulate;
+	    "q345V503" := "345".Q.V503 AND NOT "System1".Common.Simulate;
+	    "q345V506" := "345".Q.V506 AND NOT "System1".Common.Simulate;
+	    "q345V508" := "345".Q.V508 AND NOT "System1".Common.Simulate;
+	    "q345V509" := "345".Q.V509 AND NOT "System1".Common.Simulate;
+	    // "q345V510" := "345".Q.V510 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION Moduflex 350
+	    "q350H1" := "350".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q350H2" := "350".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q350K400" := "350".Q.K400 AND NOT "System1".Common.Simulate;
+	    "q350V402" := "350".Q.V402 AND NOT "System1".Common.Simulate;
+	    "q350V403" := "350".Q.V403 AND NOT "System1".Common.Simulate;
+	    "q350V404" := "350".Q.V404 AND NOT "System1".Common.Simulate;
+	    "q350V405" := "350".Q.V405 AND NOT "System1".Common.Simulate;
+	    "q350V406" := "350".Q.V406 AND NOT "System1".Common.Simulate;
+	    "q350V407" := "350".Q.V407 AND NOT "System1".Common.Simulate;
+	    "q350V410" := "350".Q.V410 AND NOT "System1".Common.Simulate;
+	    "q350V411" := "350".Q.V411 AND NOT "System1".Common.Simulate;
+	    "q350V412" := "350".Q.V412 AND NOT "System1".Common.Simulate;
+	    "q350V414" := "350".Q.V414 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION Moduflex 355
+	    "q355H1" := "355".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q355H2" := "355".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q355K400" := "355".Q.K400 AND NOT "System1".Common.Simulate;
+	    "q355V402" := "355".Q.V402 AND NOT "System1".Common.Simulate;
+	    "q355V403" := "355".Q.V403 AND NOT "System1".Common.Simulate;
+	    "q355V404" := "355".Q.V404 AND NOT "System1".Common.Simulate;
+	    "q355V405" := "355".Q.V405 AND NOT "System1".Common.Simulate;
+	    "q355V406" := "355".Q.V406 AND NOT "System1".Common.Simulate;
+	    "q355V407" := "355".Q.V407 AND NOT "System1".Common.Simulate;
+	    "q355V410" := "355".Q.V410 AND NOT "System1".Common.Simulate;
+	    "q355V411" := "355".Q.V411 AND NOT "System1".Common.Simulate;
+	    "q355V412" := "355".Q.V412 AND NOT "System1".Common.Simulate;
+	    "q355V414" := "355".Q.V414 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION Moduflex 360
+	    "q360H1" := "360".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q360H2" := "360".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q360K400" := "360".Q.K400 AND NOT "System1".Common.Simulate;
+	    "q360V402" := "360".Q.V402 AND NOT "System1".Common.Simulate;
+	    "q360V403" := "360".Q.V403 AND NOT "System1".Common.Simulate;
+	    "q360V404" := "360".Q.V404 AND NOT "System1".Common.Simulate;
+	    "q360V405" := "360".Q.V405 AND NOT "System1".Common.Simulate;
+	    "q360V406" := "360".Q.V406 AND NOT "System1".Common.Simulate;
+	    "q360V407" := "360".Q.V407 AND NOT "System1".Common.Simulate;
+	    "q360V410" := "360".Q.V410 AND NOT "System1".Common.Simulate;
+	    "q360V411" := "360".Q.V411 AND NOT "System1".Common.Simulate;
+	    "q360V412" := "360".Q.V412 AND NOT "System1".Common.Simulate;
+	    "q360V414" := "360".Q.V414 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION RT 320
+	    "q320K503" := "320".Q.K503 AND NOT "System2".Common.Simulate;
+	    "q320V501" := "320".Q.V501 AND NOT "System2".Common.Simulate;
+	    "q320V503" := "320".Q.V503 AND NOT "System2".Common.Simulate;
+	    "q320V506" := "320".Q.V506 AND NOT "System2".Common.Simulate;
+	END_REGION
+	
+	REGION ASRA 335
+	    "q335H1" := "335".Q.H1 AND NOT "System2".Common.Simulate;
+	    "q335H2" := "335".Q.H2 AND NOT "System2".Common.Simulate;
+	    "q335PV501" := "335".Q.PV501 OR "340".Q.PV501 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335PV502" := "335".Q.PV502 OR "340".Q.PV502 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335PV503" := "335".Q.PV503 OR "340".Q.PV503 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335PV550" := "335".Q.PV550 AND NOT "System2".Common.Simulate;
+	    "q335V547" := "335".Q.V547 AND NOT "System2".Common.Simulate;
+	    "q335V548" := "335".Q.V548 AND NOT "System2".Common.Simulate;
+	    "q335V550" := "335".Q.V550 AND NOT "System2".Common.Simulate;
+	    "q335V551" := "335".Q.V551 AND NOT "System2".Common.Simulate;
+	    "q335V552" := "335".Q.V552 AND NOT "System2".Common.Simulate;
+	    "q335V553" := "335".Q.V553 AND NOT "System2".Common.Simulate;
+	    "q335V554" := "335".Q.V554 AND NOT "System2".Common.Simulate;
+	    "q335V555" := "335".Q.V555 AND NOT "System2".Common.Simulate;
+	    "q335V556.A" := "335".Q."V556.A" AND NOT "System2".Common.Simulate;
+	    "q335V556.B" := "335".Q."V556.B" AND NOT "System2".Common.Simulate;
+	    "q335V557" := "335".Q.V557 AND NOT "System2".Common.Simulate;
+	    "q335V558" := "335".Q.V558 AND NOT "System2".Common.Simulate;
+	    "q335V559" := "335".Q.V559 AND NOT "System2".Common.Simulate;
+	    "q335V560" := "335".Q.V560 AND NOT "System2".Common.Simulate;
+	    "q335V561" := "335".Q.V561 AND NOT "System2".Common.Simulate;
+	    "q335V562" := "335".Q.V562 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335V566" := "335".Q.V566 AND NOT "System2".Common.Simulate;
+	    "q335V570" := "335".Q.V570 AND NOT "System2".Common.Simulate;
+	    "q335V571" := "335".Q.V571 AND NOT "System2".Common.Simulate;
+	    "q335V572" := "335".Q.V572 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335V575.A" := "335".Q."V575.A" AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q335V575.B" := "335".Q."V575.B" AND NOT "System2".Common.Simulate; // Dry Cake
+	END_REGION
+	
+	REGION ASRA 340
+	    "q340H1" := "340".Q.H1 AND NOT "System2".Common.Simulate;
+	    "q340H2" := "340".Q.H2 AND NOT "System2".Common.Simulate;
+	//  "q225PV501" := "225".Q.PV501 OR "225".Q.PV501 AND NOT "System2".Common.Simulate; // Dry Cake
+	//  "q225PV502" := "225".Q.PV502 OR "225".Q.PV502 AND NOT "System2".Common.Simulate; // Dry Cake
+	//  "q225PV503" := "225".Q.PV503 OR "225".Q.PV503 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q340PV550" := "340".Q.PV550 AND NOT "System2".Common.Simulate;
+	    "q340V547" := "340".Q.V547 AND NOT "System2".Common.Simulate;
+	    "q340V548" := "340".Q.V548 AND NOT "System2".Common.Simulate;
+	    "q340V550" := "340".Q.V550 AND NOT "System2".Common.Simulate;
+	    "q340V551" := "340".Q.V551 AND NOT "System2".Common.Simulate;
+	    "q340V552" := "340".Q.V552 AND NOT "System2".Common.Simulate;
+	    "q340V553" := "340".Q.V553 AND NOT "System2".Common.Simulate;
+	    "q340V554" := "340".Q.V554 AND NOT "System2".Common.Simulate;
+	    "q340V555" := "340".Q.V555 AND NOT "System2".Common.Simulate;
+	    "q340V556.A" := "340".Q."V556.A" AND NOT "System2".Common.Simulate;
+	    "q340V556.B" := "340".Q."V556.B" AND NOT "System2".Common.Simulate;
+	    "q340V557" := "340".Q.V557 AND NOT "System2".Common.Simulate;
+	    "q340V558" := "340".Q.V558 AND NOT "System2".Common.Simulate;
+	    "q340V559" := "340".Q.V559 AND NOT "System2".Common.Simulate;
+	    "q340V560" := "340".Q.V560 AND NOT "System2".Common.Simulate;
+	    "q340V561" := "340".Q.V561 AND NOT "System2".Common.Simulate;
+	    "q340V562" := "340".Q.V562 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q340V566" := "340".Q.V566 AND NOT "System2".Common.Simulate;
+	    "q340V570" := "340".Q.V570 AND NOT "System2".Common.Simulate;
+	    "q340V571" := "340".Q.V571 AND NOT "System2".Common.Simulate;
+	    "q340V572" := "340".Q.V572 AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q340V575.A" := "340".Q."V575.A" AND NOT "System2".Common.Simulate; // Dry Cake
+	    "q340V575.B" := "340".Q."V575.B" AND NOT "System2".Common.Simulate; // Dry Cake
+	END_REGION
+	
+	REGION ASRA 380
+	    "q380H1" := "380".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q380H2" := "380".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q380PV550" := "380".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q380V547" := "380".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q380V548" := "380".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q380V550" := "380".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q380V551" := "380".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q380V552" := "380".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q380V553" := "380".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q380V554" := "380".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q380V555" := "380".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q380V556.A" := "380".Q."V556.A" AND NOT "System1".Common.Simulate;     // Order to close
+	    // "q380V556.B" := "380".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q380V557" := "380".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q380V558" := "380".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q380V559" := "380".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q380V560" := "380".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q380V561" := "380".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q380V566" := "380".Q.V566 AND NOT "System1".Common.Simulate;
+	    // "q380V570" := "380".Q.V570 AND NOT "System1".Common.Simulate;   // Candle 5
+	    // "q380V571" := "380".Q.V571 AND NOT "System1".Common.Simulate;   // Candle 6
+	    // "q380V572" := "380".Q.V572 AND NOT "System1".Common.Simulate; 
+	    
+	END_REGION
+	
+	REGION  ASRA 400
+	    "q400H1" := "400".Q.H1 AND NOT "System1".Common.Simulate;
+	    "q400H2" := "400".Q.H2 AND NOT "System1".Common.Simulate;
+	    "q400PV550" := "400".Q.PV550 AND NOT "System1".Common.Simulate;
+	    "q400V547" := "400".Q.V547 AND NOT "System1".Common.Simulate;
+	    "q400V548" := "400".Q.V548 AND NOT "System1".Common.Simulate;
+	    "q400V550" := "400".Q.V550 AND NOT "System1".Common.Simulate;
+	    "q400V551" := "400".Q.V551 AND NOT "System1".Common.Simulate;
+	    "q400V552" := "400".Q.V552 AND NOT "System1".Common.Simulate;
+	    "q400V553" := "400".Q.V553 AND NOT "System1".Common.Simulate;
+	    "q400V554" := "400".Q.V554 AND NOT "System1".Common.Simulate;
+	    "q400V555" := "400".Q.V555 AND NOT "System1".Common.Simulate;
+	    "q400V556.B" := "400".Q."V556.A" AND NOT "System1".Common.Simulate;     // Order to close
+	    // "q400V556.B" := "400".Q."V556.B" AND NOT "System1".Common.Simulate;
+	    "q400V557" := "400".Q.V557 AND NOT "System1".Common.Simulate;
+	    "q400V558" := "400".Q.V558 AND NOT "System1".Common.Simulate;
+	    "q400V559" := "400".Q.V559 AND NOT "System1".Common.Simulate;
+	    "q400V560" := "400".Q.V560 AND NOT "System1".Common.Simulate;
+	    "q400V561" := "400".Q.V561 AND NOT "System1".Common.Simulate;
+	    "q400V566" := "400".Q.V566 AND NOT "System1".Common.Simulate;
+	    "q400V570" := "400".Q.V570 AND NOT "System1".Common.Simulate;   // Candle 5
+	    "q400V571" := "400".Q.V571 AND NOT "System1".Common.Simulate;   // Candle 6
+	    // "q400V572" := "400".Q.V572 AND NOT "System1".Common.Simulate; 
+	    
+	END_REGION
+	
+	REGION WAT B05
+	    "qB05K004" := "B05".Q.K903 AND NOT "System1".Common.Simulate;
+	    "qB05V903" := "B05".Q.V903 AND NOT "System1".Common.Simulate;
+	    "qB05V906" := "B05".Q.V906 AND NOT "System1".Common.Simulate;
+	//  "qB05V908" := "B05".Q.V908 AND NOT "System1".Common.Simulate;
+	    "qB05V910" := "B05".Q.V910 AND NOT "System1".Common.Simulate;
+	    "qB05V912" := "B05".Q.V912 AND NOT "System1".Common.Simulate;
+	    "qB05V917" := "B05".Q.V917 AND NOT "System1".Common.Simulate;
+	    "qB05V919" := "B05".Q.V919 AND NOT "System1".Common.Simulate;
+	    "qB05V921" := "B05".Q.V921 AND NOT "System1".Common.Simulate;
+	    "qB05V923" := "B05".Q.V923 AND NOT "System1".Common.Simulate;
+	    "qB05V924" := "B05".Q.V924 AND NOT"System1".Common.Simulate;
+	END_REGION
+	
+	REGION WAT B10
+	    "qB10K001" := "B10".Q.K903 AND NOT "System1".Common.Simulate;
+	    "qB10V903" := "B10".Q.V903 AND NOT "System1".Common.Simulate;
+	    "qB10V906" := "B10".Q.V906 AND NOT "System1".Common.Simulate;
+	//  "qB10V908" := "B10".Q.V908 AND NOT "System1".Common.Simulate;
+	    "qB10V910" := "B10".Q.V910 AND NOT "System1".Common.Simulate;
+	    "qB10V912" := "B10".Q.V912 AND NOT "System1".Common.Simulate;
+	    "qB10V917" := "B10".Q.V917 AND NOT "System1".Common.Simulate;
+	    "qB10V919" := "B10".Q.V919 AND NOT "System1".Common.Simulate;
+	    "qB10V921" := "B10".Q.V921 AND NOT "System1".Common.Simulate;
+	    "qB10V923" := "B10".Q.V923 AND NOT "System1".Common.Simulate;
+	    "qB10V924" := "B10".Q.V924 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION WAT B05/B10 PUMPS
+	    "qB05H501-1" := "B05PU".Q.H001_1 AND NOT "System1".Common.Simulate;
+	    "qB05H502-1" := "B05PU".Q.H002_1 AND NOT "System1".Common.Simulate;
+	    "qB05H503-1" := "B05PU".Q.H003_1 AND NOT "System1".Common.Simulate;
+	    "qB05H501-2" := "B05PU".Q.H001_2 AND NOT "System1".Common.Simulate;
+	    "qB05H502-2" := "B05PU".Q.H002_2 AND NOT "System1".Common.Simulate;
+	    "qB05H503-2" := "B05PU".Q.H003_2 AND NOT "System1".Common.Simulate;
+	    "qB05K001" := "B05PU".Q.K001 AND NOT "System1".Common.Simulate;
+	    "qB05K002" := "B05PU".Q.K002 AND NOT "System1".Common.Simulate;
+	    "qB05K003" := "B05PU".Q.K003 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION RAT B70
+	    "qB70H01" := ("B70".Q.H1_1 OR "B70".Q.H2_1) AND NOT "System1".Common.Simulate;
+	    "qB70K001" := "B70".Q.K001 AND NOT "System1".Common.Simulate;
+	    "qB70K002" := "B70".Q.K002 AND NOT "System1".Common.Simulate;
+	    "qB70V903" := "B70".Q.V903 AND NOT "System1".Common.Simulate;
+	    "qB70V906" := "B70".Q.V906 AND NOT "System1".Common.Simulate;
+	    "qB70V912" := "B70".Q.V912 AND NOT "System1".Common.Simulate;
+	END_REGION
+	
+	REGION WP B75
+	    "qB75K001" := "B75".Q.K901 AND NOT "System1".Common.Simulate;
+	    "qB75K002" := "B75".Q.K902 AND NOT "System1".Common.Simulate;
+	    "qB75K003" := "B75".Q.K903 AND NOT "System1".Common.Simulate;
+	END_REGION
+END_FUNCTION
+
